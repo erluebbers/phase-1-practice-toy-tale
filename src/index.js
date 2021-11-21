@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <button class="like-btn" id="${obj.id}">Like <3</button>
     `
     newCard.querySelector('.like-btn').addEventListener('click', () => {
-      updateLikes(newCard)
+      updateLikes(obj).then(data => newCard.querySelector('p').innerHTML = data)
     })
 
     document.querySelector('#toy-collection').appendChild(newCard)
@@ -67,17 +67,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
   function updateLikes (obj) {
-    fetch(`http://localhost:3000/toys/${obj.id}`, {
+    return fetch(`http://localhost:3000/toys/${obj.id}`, {
       method: "PATCH",
       headers: 
       {
-      "Content-Type": "application/json",
-      Accept: "application/json"
+        "Content-Type": "application/json",
+        Accept: "application/json"
       },
       body: JSON.stringify({
-      "likes": obj.likes += 1
+        "likes": obj.likes += 1
       })
     })
+    .then(res => res.json())
+    .then(data => data.likes)
   }
 
 
