@@ -47,6 +47,12 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": 1
+    },
+    {
+      "name": "Chandra",
+      "image": "https://i2.wp.com/strategy.channelfireball.com/wp-content/uploads/2020/10/DeMars13.jpg?ssl=1",
+      "likes": "0",
+      "id": 9
     }
   ]
 }
